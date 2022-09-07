@@ -1,25 +1,42 @@
-// Registro de 5 personas con sus nombres y edades.
+// Promedios de alumnos
 
 function pedir_nombres() {
-    let nombre = prompt ("Ingresar Nombre");
-    let apellido = prompt ("Ingresar Apellido");
+    let nombre = prompt ("Ingresar nombre del alumno");
+    let apellido = prompt ("Ingresar apellido del alumno");
     console.log(`Nombre: ${nombre} ${apellido}`);
 }
 
-function pedir_edad() {
-    let edad = Number(prompt ("Ingresar edad"));
-    console.log(`Edad: ${edad} años`);
+
+function pedir_notas() {
+pedir_nombres();
+let nota1 = Number(prompt ("Ingresar nota de evaluación"));
+console.log(`Evaluación: ${nota1}`)
+
+let nota2 = Number(prompt ("Ingresar nota de TP"));
+console.log(`Trabajo práctico: ${nota2}`)
+
+let nota3 = Number(prompt ("Ingresar nota de concepto"));
+console.log(`Concepto: ${nota3}`)
+
+let resultado_notas = nota1 + nota2 + nota3
+
+promedio_notas = resultado_notas / 3
+
+console.log(`Promedio: ${promedio_notas}`)
+
 }
 
-let i = 1;
-let edad = 1 <100;
-let suma_edades = edad + edad + edad + edad + edad
-let promedio_edad = suma_edades / 5;
+let alumnos = 1;
 
 
-for(let i = 1; i <= 5 ; i++) {
-    pedir_nombres();
-    pedir_edad();
+for(let alumnos = 1; alumnos <= 30 ; alumnos++) {
+    pedir_notas();
+    alert(`Nota final: ${promedio_notas}`)
+    if(promedio_notas >= 7){
+    alert("Alumno aprobado")
+    } else {
+    alert("Alumno desaprobado")
+    }
+    alert("SIGUIENTE ALUMNO")
 }
-
-alert (`El promedio de edad es de ${promedio_edad} años`)
+    alert("TODOS LOS ALUMNOS FUERON EVALUADOS")
