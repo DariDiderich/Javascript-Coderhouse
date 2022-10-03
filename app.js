@@ -1,15 +1,8 @@
 // Obtener nota de evaluacion oral mediante preguntas.
 
-const preguntas = ["Preguntas del examen oral a continuación...", "¿De qué nacionalidad era Juana de Arco?", "¿Quién dibujo al famoso Hombre de Vitruvio?", "¿Qué famoso filósofo fue maestro de Alejandro Magno durante cinco años?", "¿Quién fue el último zar de Rusia?", "¿Quienes eran los templarios?", "¿Qué inició la Segunda Guerra Mundial?", "¿Dónde se han encontrado principalmente pinturas del período Paleolítico?", "¿Era Averroes un antiguo filósofo griego?", "¿Cómo comenzó la Primera Guerra Mundial?", "¿En qué año descubrió Cristóbal Colón, América?", "PODRÁ REEVER CADA PREGUNTA Y EL NUMERO EN LA CONSOLA PARA PODER DEFINIR LA NOTA FINAL"]
+const preguntas = ["¿Qué río atraviesa la ciudad de Benarés, en la India?", "¿En qué país nació Adolf Hitler?", "¿Cuándo llegó el hombre a la Luna?", "¿Cuándo asesinaron al presidente John F. Kennedy?", "¿Cuándo se inventó la imprenta?", "¿Dónde se lanzaron las primeras bombas atómicas?", "¿Cuál fue la primera civilización humana?", "¿De qué nacionalidad era Juana de Arco?", "¿Quién dibujo al famoso Hombre de Vitruvio?", "¿Qué famoso filósofo fue maestro de Alejandro Magno durante cinco años?", "¿Quién fue el último zar de Rusia?", "¿Quienes eran los templarios?", "¿Qué inició la Segunda Guerra Mundial?", "¿Dónde se han encontrado principalmente pinturas del período Paleolítico?", "¿Era Averroes un antiguo filósofo griego?", "¿Cómo comenzó la Primera Guerra Mundial?", "¿En qué año descubrió Cristóbal Colón, América?", "¿Quién escribió La Odisea?", "¿Quién es el autor de el Quijote?", "¿En qué año cayó el muro de Berlín?", "¿Cuáles son las siete maravillas del mundo antiguo?", ]
 
-const mas_preguntas = ["NUEVAS PREGUNTAS: ",
- "¿A qué emperador romano asesinó un grupo de senadores?",
- "¿Quién dijo que la tierra giraba alrededor del sol?",
- "¿Cuál es el antiguo nombre de San Petersburgo?",
- "¿Qué famosa batalla perdió y dejó humillado a Napoleón Bonaparte?",
- "¿Quién fue el primer presidente de los Estados Unidos?"]
 
-const todas_preguntas = preguntas.concat(mas_preguntas)
 
 
 
@@ -30,7 +23,12 @@ const todas_preguntas = preguntas.concat(mas_preguntas)
 
 const MasPreguntas = document.querySelector(".MoreQuestions")
 MasPreguntas.addEventListener("click", (e) =>{
-    console.log(mas_preguntas)
+    e.preventDefault()
+    let pregunta = preguntas[Math.floor(Math.random() * preguntas.length)]
+
+let PreguntaRandom = document.createElement("h4")
+PreguntaRandom.innerHTML = `<h4>${pregunta}</h4>`
+document.body.appendChild(PreguntaRandom)
 })
 
 let notas = document.querySelector(".FormNotas")
@@ -61,10 +59,10 @@ function pedirNotas (e) {
     let AlumnoDesaprobado = document.createElement("h4")
 
     if(promedio_notas >= 7){
-        AlumnoAprobado.innerHTML = `<h4>El alumno ${nombre.value} ${apellido.value}, de ${curso.value} ha aprobado con un ${promedio_notas} final. </h4>`;
+        AlumnoAprobado.innerHTML = `<h4>¡El alumno ${nombre.value} ${apellido.value}, de ${curso.value} ha aprobado con un ${promedio_notas} final! </h4>`;
         document.body.appendChild(AlumnoAprobado);
         } else {
-            AlumnoDesaprobado.innerHTML = `<h4>El alumno ${nombre.value} ${apellido.value}, de ${curso.value} ha desaprobado con un ${promedio_notas} final. </h4>`;
+            AlumnoDesaprobado.innerHTML = `<h4>¡El alumno ${nombre.value} ${apellido.value}, de ${curso.value} ha desaprobado con un ${promedio_notas} final!</h4>`;
             document.body.appendChild(AlumnoDesaprobado);
         }
 
