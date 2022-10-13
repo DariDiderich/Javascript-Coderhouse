@@ -1,0 +1,53 @@
+[
+
+    {
+        "alumno": "Darío Diderich",
+        "curso": "Sexto año"
+    },
+
+    {
+        "alumno": "Jano Nieldon",
+        "curso": "Sexto año"
+    },
+
+    {
+        "alumno": "Marcelo Simeon",
+        "curso": "Sexto año"
+    },
+
+    {
+        "alumno": "Daniel Sesamo",
+        "curso": "Quinto año"
+    },
+
+    {
+        "alumno": "Javier Mongo",
+        "curso": "Quinto año"
+    },
+
+    {
+        "alumno": "Tyna Cheanoa",
+        "curso": "Quinto año"
+    },
+
+    {
+        "alumno": "Julieta Gomez",
+        "curso": "Cuarto año"
+    },
+
+    {
+        "alumno": "Juan Martinez",
+        "curso": "Cuarto año"
+    },
+
+    {
+        "alumno": "Pablo Gonzalez",
+        "curso": "Cuarto año"
+    },
+
+    {
+        "alumno": "Danilo Janescu",
+        "curso": "Cuarto año"
+    }
+
+]

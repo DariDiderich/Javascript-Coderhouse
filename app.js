@@ -83,6 +83,18 @@ function pedirNotas (e) {
 
 let alumnos = 1;
 
+let lista = document.querySelector(".evaluarAlumnos")
+
+fetch("/data.json")
+.then((retorno)=>retorno.json())
+.then((informacion)=>{
+    informacion.forEach((evaluarAlumnos)=>{
+        const listaAlumnos = document.createElement("p")
+        listaAlumnos.innerHTML= `<p> ${evaluarAlumnos.alumno}, ${evaluarAlumnos.curso} </p>`
+
+        document.body.appendChild(listaAlumnos)
+    })
+})
 
 
 for(let alumnos = 1; alumnos <= 20 ; alumnos++) {
