@@ -18,7 +18,6 @@ const preguntas = ["¿Qué río atraviesa la ciudad de Benarés, en la India?", 
 
     function loginNombres(e) {
         e.preventDefault()
-        console.log(`Alumno: ${nombre.value} ${apellido.value} - Curso: ${curso.value} año`)
     }
 
 const MasPreguntas = document.querySelector(".MoreQuestions")
@@ -46,13 +45,10 @@ notas.addEventListener("submit", pedirNotas)
 function pedirNotas (e) {
     e.preventDefault()
     
-    console.log(`Evaluacion: ${nota1.value} Trabajo Practico: ${nota2.value} Concepto: ${nota3.value}`)
 
     let resultado_notas = (parseInt(nota1.value) + parseInt(nota2.value) + parseInt(nota3.value)) 
 
     promedio_notas = resultado_notas / 3
-
-    console.log(`Promedio: ${promedio_notas}`)
 
     let AlumnoAprobado = document.createElement("h4")
 
@@ -84,16 +80,14 @@ function pedirNotas (e) {
          
          localStorage.setItem("Alumno y su promedio", BaseStorage)
 
+         nota1.value=""
+         nota2.value=""
+         nota3.value=""
+
     document.querySelector(".FormNombre").reset();
     document.querySelector(".nmbre").reset();
     document.querySelector(".apllido").reset();
     document.querySelector(".curso").reset();
-
-    document.getElementsByClassName("evaluacion").value = "";
-    document.getElementsByClassName("tp").value = "";
-    document.getElementsByClassName("concepto").value = "";
-    
-
 }
 
 
@@ -121,9 +115,6 @@ for(let alumnos = 1; alumnos <= 20 ; alumnos++) {
         (preguntas[ip]);
     }
     
-    preguntas.forEach((cada_pregunta, indice_pregunta) =>{
-        console.log(`${indice_pregunta}:${cada_pregunta}`);
-    })
     
     pedirNotas();
 
