@@ -1,6 +1,6 @@
 // Obtener nota de evaluacion oral mediante preguntas.
 
-const preguntas = ["¿Qué río atraviesa la ciudad de Benarés, en la India?", "¿En qué país nació Adolf Hitler?", "¿Cuándo llegó el hombre a la Luna?", "¿Cuándo asesinaron al presidente John F. Kennedy?", "¿Cuándo se inventó la imprenta?", "¿Dónde se lanzaron las primeras bombas atómicas?", "¿Cuál fue la primera civilización humana?", "¿De qué nacionalidad era Juana de Arco?", "¿Quién dibujo al famoso Hombre de Vitruvio?", "¿Qué famoso filósofo fue maestro de Alejandro Magno durante cinco años?", "¿Quién fue el último zar de Rusia?", "¿Quienes eran los templarios?", "¿Qué inició la Segunda Guerra Mundial?", "¿Dónde se han encontrado principalmente pinturas del período Paleolítico?", "¿Era Averroes un antiguo filósofo griego?", "¿Cómo comenzó la Primera Guerra Mundial?", "¿En qué año descubrió Cristóbal Colón, América?", "¿Quién escribió La Odisea?", "¿Quién es el autor de el Quijote?", "¿En qué año cayó el muro de Berlín?", "¿Cuáles son las siete maravillas del mundo antiguo?", ]
+const preguntas = ["¿Qué río atraviesa la ciudad de Benarés, en la India?", "¿En qué país nació Adolf Hitler?", "¿Cuándo llegó el hombre a la Luna?", "¿Cuándo asesinaron al presidente John F. Kennedy?", "¿Cuándo se inventó la imprenta?", "¿Dónde se lanzaron las primeras bombas atómicas?", "¿Cuál fue la primera civilización humana?", "¿De qué nacionalidad era Juana de Arco?", "¿Quién dibujo al famoso Hombre de Vitruvio?", "¿Qué famoso filósofo fue maestro de Alejandro Magno durante cinco años?", "¿Quién fue el último zar de Rusia?", "¿Quienes eran los templarios?", "¿Qué inició la Segunda Guerra Mundial?", "¿Dónde se han encontrado principalmente pinturas del período Paleolítico?", "¿Era Averroes un antiguo filósofo griego?", "¿Cómo comenzó la Primera Guerra Mundial?", "¿En qué año descubrió Cristóbal Colón, América?", "¿Quién escribió La Odisea?", "¿Quién es el autor de el Quijote?", "¿En qué año cayó el muro de Berlín?", "¿Cuáles son las siete maravillas del mundo antiguo?", "¿Quién escribió “Hamlet”?", "¿De qué estado fue emperador Napoleón Bonaparte?", "¿Cuál es la capital de Croacia?", "¿De qué lengua proviene el español?", "¿En qué país se usó la primera bomba atómica en combate?", "¿Con qué se fabricaba el pergamino?", "¿Cuál es la moneda del Reino Unido?", "¿Cuál es el río más largo del mundo?", "¿Qué animal contagió a los humanos en la pandemia de peste negra?", "¿A qué país pertenece Groenlandia?", "¿Qué año llegó el ser humano a la Luna?"]
 
 
 
@@ -45,7 +45,7 @@ notas.addEventListener("submit", pedirNotas)
 
 function pedirNotas (e) {
     e.preventDefault()
-
+    
     console.log(`Evaluacion: ${nota1.value} Trabajo Practico: ${nota2.value} Concepto: ${nota3.value}`)
 
     let resultado_notas = (parseInt(nota1.value) + parseInt(nota2.value) + parseInt(nota3.value)) 
@@ -65,6 +65,15 @@ function pedirNotas (e) {
             AlumnoDesaprobado.innerHTML = `<h4>¡El alumno ${nombre.value} ${apellido.value}, de ${curso.value} ha desaprobado con un ${promedio_notas} final!</h4>`;
             document.body.appendChild(AlumnoDesaprobado);
         }
+    
+    if(promedio_notas >=10){
+        Swal.fire({
+            title: 'ERROR',
+            text: 'Notas incorrectas',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          })
+        }
 
         const BaseDeDatos = {
             Nombre: `${nombre.value} ${apellido.value}`, 
@@ -74,8 +83,18 @@ function pedirNotas (e) {
          const BaseStorage = JSON.stringify(BaseDeDatos)
          
          localStorage.setItem("Alumno y su promedio", BaseStorage)
-}
 
+    document.querySelector(".FormNombre").reset();
+    document.querySelector(".nmbre").reset();
+    document.querySelector(".apllido").reset();
+    document.querySelector(".curso").reset();
+
+    document.getElementsByClassName("evaluacion").value = "";
+    document.getElementsByClassName("tp").value = "";
+    document.getElementsByClassName("concepto").value = "";
+    
+
+}
 
 
 
@@ -105,9 +124,8 @@ for(let alumnos = 1; alumnos <= 20 ; alumnos++) {
     preguntas.forEach((cada_pregunta, indice_pregunta) =>{
         console.log(`${indice_pregunta}:${cada_pregunta}`);
     })
-
-    pedirNotas();
     
+    pedirNotas();
 
 }
 
